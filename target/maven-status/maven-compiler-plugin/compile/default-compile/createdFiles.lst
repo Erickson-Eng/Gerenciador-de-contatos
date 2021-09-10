@@ -1,0 +1,3 @@
+com\example\gerenciadorcontatos\HelloServlet.class
+com\example\gerenciadorcontatos\controllers\newUserServlet.class
+com\example\gerenciadorcontatos\model\entities\User.class
