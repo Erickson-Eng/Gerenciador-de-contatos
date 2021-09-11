@@ -19,7 +19,8 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class User implements Serializable {
     private static final long serialVersionUID = -97814396482582593L;
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Column(unique = true, nullable = false)
     private String email;
     @Column(nullable = false)

@@ -1,10 +1,9 @@
 package com.example.gerenciadorcontatos.controllers;
 
 import com.example.gerenciadorcontatos.model.entities.User;
+import com.example.gerenciadorcontatos.resources.JPAUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -20,8 +19,8 @@ public class NewUserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        EntityManager entityManager = JPAUtil.getEntityManager();
 
         String username = request.getParameter("Username");
         String password = request.getParameter("Password");
@@ -34,7 +33,7 @@ public class NewUserServlet extends HttpServlet {
         entityManager.persist(obj);
         entityManager.getTransaction().commit();
         entityManager.close();
-        entityManagerFactory.close();
+
 
         System.out.printf("Username : %s%nPassword: %s%nEmail: %s%n ",obj.getUsername(),obj.getPassword(),obj.getEmail());
     }
