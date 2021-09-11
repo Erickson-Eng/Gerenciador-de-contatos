@@ -8,18 +8,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:url value="/newUser" var="linkToNewUserServlet"/>
+<c:url value="/newUser" var="linkToNewUserServlet" />
 <html>
+
 <head>
-    <title>Form new user</title>
+  <title>Form new user</title>
 </head>
+
 <body>
-<form action="${linkToNewUserServlet}" method="post">
+  <form action="${linkToNewUserServlet}" method="post">
     Username: <input type="text" name="Username">
     Password: <input type="password" name="Password">
     Email: <input type="email" name="Email">
     <input type="submit">
-</form>
+  </form>
 
 </body>
+
 </html>
