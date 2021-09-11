@@ -20,10 +20,8 @@ public class NewUserServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         String username = request.getParameter("Username");
         String password = request.getParameter("Password");
         String email = request.getParameter("Email");

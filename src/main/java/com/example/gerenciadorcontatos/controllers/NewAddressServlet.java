@@ -9,7 +9,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "NewAddressServlet", value = "/NewAddress")
+@WebServlet(name = "NewAddressServlet", value = "/newAddress")
 public class NewAddressServlet extends HttpServlet {
     @Inject
     private AddressDAO addressDAO;
@@ -19,7 +19,8 @@ public class NewAddressServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         Address obj = new Address();
         obj.setStreet(request.getParameter("street"));
         obj.setNumber(Integer.parseInt(request.getParameter("number")));

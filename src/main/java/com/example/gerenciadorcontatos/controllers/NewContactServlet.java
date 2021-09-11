@@ -15,12 +15,14 @@ public class NewContactServlet extends HttpServlet {
 
     private final ContactDAO contactDAO = new ContactDAO();
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
         String name = request.getParameter("name");
         String rg = request.getParameter("rg");

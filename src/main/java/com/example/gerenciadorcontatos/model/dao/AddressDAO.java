@@ -23,7 +23,6 @@ public class AddressDAO {
     }
 
     public List<Address> findAll(){
-
         String consult = "from Address";
         TypedQuery<Address> query = entityManager.createQuery(consult, Address.class);
         query.setMaxResults(10);

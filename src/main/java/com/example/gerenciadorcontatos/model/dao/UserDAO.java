@@ -1,6 +1,5 @@
 package com.example.gerenciadorcontatos.model.dao;
 
-import com.example.gerenciadorcontatos.model.entities.Address;
 import com.example.gerenciadorcontatos.model.entities.User;
 import com.example.gerenciadorcontatos.resources.JPAUtil;
 
@@ -19,11 +18,6 @@ public class UserDAO {
         this.entityManager.close();
     }
 
-//    public User findById(Integer id){
-//        String consult = "from User";
-//        TypedQuery<User> query = entityManager.createQuery(consult, User.class);
-//        User user = query.get
-//    }
 
     public List<User> findAll(){
         String consult = "from User";
@@ -33,10 +27,5 @@ public class UserDAO {
         return query.getResultList();
     }
 
-    public static void main(String[] args) {
-        AddressDAO dao = new AddressDAO();
-        dao.findAll();
-        System.out.println(dao);
-    }
 }
 
