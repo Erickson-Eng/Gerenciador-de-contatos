@@ -1,11 +1,7 @@
 package com.example.gerenciadorcontatos.controllers;
 
-import com.example.gerenciadorcontatos.model.entities.Email;
-import com.example.gerenciadorcontatos.model.entities.User;
+import com.example.gerenciadorcontatos.model.entities.Contact;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -24,6 +20,10 @@ public class NewContactServlet extends HttpServlet {
         String name = request.getParameter("name");
         String rg = request.getParameter("rg");
         String cpf = request.getParameter("cpf");
-        System.out.printf("Name: %s%nRG: %s%nCPF: %s%n", name, rg,cpf);
+        Contact obj = new Contact();
+        obj.setNome(name);
+        obj.setCpf(cpf);
+        obj.setRg(Integer.parseInt(rg));
+        System.out.printf("Name: %s%nRG: %d%nCPF: %s%n", obj.getNome(), obj.getRg(),obj.getCpf());
     }
 }

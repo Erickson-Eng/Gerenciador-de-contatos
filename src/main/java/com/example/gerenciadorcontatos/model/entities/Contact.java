@@ -23,8 +23,8 @@ public class Contact implements Serializable {
     private Integer id;
     @Column(nullable = false)
     private String nome;
-    @Column(nullable = false, unique = true, length = 9)
-    private String rg;
+    @Column(nullable = false, length = 9)
+    private Integer rg;
     @Column(nullable = false, unique = true, length = 14)
     private String cpf;
 

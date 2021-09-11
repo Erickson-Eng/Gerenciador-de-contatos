@@ -23,14 +23,13 @@ public class Address implements Serializable {
     @Column(nullable = false)
     private Integer number;
     private String complement;
+    private String district;
     @Column(nullable = false, length = 9)
     private String cep;
     @Column(nullable = false)
     private String city;
     @Column(nullable = false)
     private String state;
-    @Column(nullable = false, length = 2)
-    private String uf;
 
     @ManyToOne
     private Contact contact;
@@ -46,5 +45,18 @@ public class Address implements Serializable {
     @Override
     public int hashCode() {
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" +
+                "id = " + id + ", " +
+                "street = " + street + ", " +
+                "number = " + number + ", " +
+                "complement = " + complement + ", " +
+                "district = " + district + ", " +
+                "cep = " + cep + ", " +
+                "city = " + city + ", " +
+                "state = " + state + ")";
     }
 }

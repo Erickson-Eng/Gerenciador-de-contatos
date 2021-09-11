@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,26 +19,24 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class User implements Serializable {
     private static final long serialVersionUID = -97814396482582593L;
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Id
+    @Column(unique = true, nullable = false)
+    private String email;
     @Column(nullable = false)
     private String username;
     @Column(name = "user_pass", nullable = false)
     private String password;
 
+    @JsonIgnore
     @OneToMany(cascade = {CascadeType.ALL},mappedBy = "user")
     private List<Contact> contactList = new ArrayList<>();
-
-    @JsonIgnore
-    @OneToOne(cascade = {CascadeType.ALL})
-    private Email email;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id);
+        return Objects.equals(email, user.email);
     }
 
     @Override

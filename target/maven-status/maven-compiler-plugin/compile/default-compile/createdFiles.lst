@@ -1,6 +1,10 @@
 com\example\gerenciadorcontatos\HelloServlet.class
-com\example\gerenciadorcontatos\model\entities\Email.class
 com\example\gerenciadorcontatos\controllers\NewContactServlet.class
+com\example\gerenciadorcontatos\controllers\NewAddressServlet.class
+com\example\gerenciadorcontatos\config\ConnectionFactory.class
+com\example\gerenciadorcontatos\model\dao\AddressDAO.class
+com\example\gerenciadorcontatos\model\dao\AddressBean.class
+com\example\gerenciadorcontatos\resources\EntityManagerProducer.class
 com\example\gerenciadorcontatos\model\entities\Address.class
 com\example\gerenciadorcontatos\controllers\NewUserServlet.class
 com\example\gerenciadorcontatos\model\entities\User.class

@@ -1,7 +1,11 @@
 C:\Users\Erickson\Desktop\gerenciador-contatos\src\main\java\com\example\gerenciadorcontatos\model\entities\Contact.java
 C:\Users\Erickson\Desktop\gerenciador-contatos\src\main\java\com\example\gerenciadorcontatos\controllers\NewUserServlet.java
 C:\Users\Erickson\Desktop\gerenciador-contatos\src\main\java\com\example\gerenciadorcontatos\HelloServlet.java
+C:\Users\Erickson\Desktop\gerenciador-contatos\src\main\java\com\example\gerenciadorcontatos\controllers\NewAddressServlet.java
+C:\Users\Erickson\Desktop\gerenciador-contatos\src\main\java\com\example\gerenciadorcontatos\model\dao\AddressBean.java
 C:\Users\Erickson\Desktop\gerenciador-contatos\src\main\java\com\example\gerenciadorcontatos\controllers\NewContactServlet.java
+C:\Users\Erickson\Desktop\gerenciador-contatos\src\main\java\com\example\gerenciadorcontatos\model\dao\AddressDAO.java
 C:\Users\Erickson\Desktop\gerenciador-contatos\src\main\java\com\example\gerenciadorcontatos\model\entities\Address.java
-C:\Users\Erickson\Desktop\gerenciador-contatos\src\main\java\com\example\gerenciadorcontatos\model\entities\Email.java
+C:\Users\Erickson\Desktop\gerenciador-contatos\src\main\java\com\example\gerenciadorcontatos\resources\EntityManagerProducer.java
 C:\Users\Erickson\Desktop\gerenciador-contatos\src\main\java\com\example\gerenciadorcontatos\model\entities\User.java
+C:\Users\Erickson\Desktop\gerenciador-contatos\src\main\java\com\example\gerenciadorcontatos\config\ConnectionFactory.java
