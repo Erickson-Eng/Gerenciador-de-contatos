@@ -1,5 +1,6 @@
 package com.example.gerenciadorcontatos.controllers;
 
+import com.example.gerenciadorcontatos.model.dao.ContactDAO;
 import com.example.gerenciadorcontatos.model.entities.Contact;
 import com.example.gerenciadorcontatos.resources.JPAUtil;
 
@@ -11,6 +12,8 @@ import java.io.IOException;
 
 @WebServlet(name = "NewContactServlet", value = "/newContact")
 public class NewContactServlet extends HttpServlet {
+
+    private final ContactDAO contactDAO = new ContactDAO();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -18,7 +21,7 @@ public class NewContactServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        EntityManager entityManager = JPAUtil.getEntityManager();
+
         String name = request.getParameter("name");
         String rg = request.getParameter("rg");
         String cpf = request.getParameter("cpf");
@@ -26,11 +29,7 @@ public class NewContactServlet extends HttpServlet {
         obj.setNome(name);
         obj.setCpf(cpf);
         obj.setRg(Integer.parseInt(rg));
-
-        entityManager.getTransaction().begin();
-        entityManager.persist(obj);
-        entityManager.getTransaction().commit();
-        entityManager.close();
+        contactDAO.save(obj);
         System.out.printf("Name: %s%nRG: %d%nCPF: %s%n", obj.getNome(), obj.getRg(),obj.getCpf());
     }
 }

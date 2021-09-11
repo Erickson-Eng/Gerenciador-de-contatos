@@ -5,7 +5,7 @@ import com.example.gerenciadorcontatos.resources.JPAUtil;
 
 import javax.persistence.EntityManager;
 
-public class AddressBean {
+public class AddressDAO {
 
     private final EntityManager entityManager = JPAUtil.getEntityManager();
 

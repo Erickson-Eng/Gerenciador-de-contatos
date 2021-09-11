@@ -5,6 +5,6 @@
                       http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
        bean-discovery-mode="all">
     <interceptors>
-        <class>com.example.gerenciadorcontatos.model.dao.AddressBean</class>
+        <class>com.example.gerenciadorcontatos.model.dao.AddressDAO</class>
     </interceptors>
 </beans>
