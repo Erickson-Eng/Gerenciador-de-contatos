@@ -1,3 +1,7 @@
 com\example\gerenciadorcontatos\HelloServlet.class
-com\example\gerenciadorcontatos\controllers\newUserServlet.class
+com\example\gerenciadorcontatos\model\entities\Email.class
+com\example\gerenciadorcontatos\controllers\NewContactServlet.class
+com\example\gerenciadorcontatos\model\entities\Address.class
+com\example\gerenciadorcontatos\controllers\NewUserServlet.class
 com\example\gerenciadorcontatos\model\entities\User.class
+com\example\gerenciadorcontatos\model\entities\Contact.class

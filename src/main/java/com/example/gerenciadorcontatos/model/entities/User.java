@@ -1,11 +1,14 @@
 package com.example.gerenciadorcontatos.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Table(name = "user")
@@ -17,13 +20,17 @@ public class User implements Serializable {
     private static final long serialVersionUID = -97814396482582593L;
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(nullable = false)
     private String username;
-    @Column(name = "user_pass")
+    @Column(name = "user_pass", nullable = false)
     private String password;
-    private String email;
 
-    @Transient
-    private Integer runTimeID;
+    @OneToMany(cascade = {CascadeType.ALL},mappedBy = "user")
+    private List<Contact> contactList = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToOne(cascade = {CascadeType.ALL})
+    private Email email;
 
     @Override
     public boolean equals(Object o) {
