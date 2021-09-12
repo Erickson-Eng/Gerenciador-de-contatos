@@ -1,5 +1,6 @@
 package com.example.gerenciadorcontatos.model.dao;
 
+import com.example.gerenciadorcontatos.model.dao.exceptions.DataIntegrityViolationException;
 import com.example.gerenciadorcontatos.model.dao.exceptions.ObjectNotFound;
 import com.example.gerenciadorcontatos.model.dto.mapper.UserMapper;
 import com.example.gerenciadorcontatos.model.dto.request.UserRequest;
@@ -7,15 +8,13 @@ import com.example.gerenciadorcontatos.model.entities.User;
 import com.example.gerenciadorcontatos.resources.JPAUtil;
 
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import javax.persistence.NoResultException;
+import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-@RequestScoped
 public class UserDAO {
 
     private UserMapper userMapper;
@@ -24,12 +23,16 @@ public class UserDAO {
 
 
 
-    public void save(UserRequest obj){
+    public void save(UserRequest obj)  {
         User entity = userMapper.INSTANCE.toModel(obj);
-        this.entityManager.getTransaction().begin();
-        this.entityManager.persist(entity);
-        this.entityManager.getTransaction().commit();
-        this.entityManager.close();
+        try{
+            this.entityManager.getTransaction().begin();
+            this.entityManager.persist(entity);
+            this.entityManager.getTransaction().commit();
+        }catch (PersistenceException e){
+            throw new DataIntegrityViolationException("Email ou Username already registered");
+        }
+
     }
 
 
@@ -52,12 +55,6 @@ public class UserDAO {
         query.setMaxResults(10);
         List<User> users = query.getResultList();
         return query.getResultList();
-    }
-
-    public static void main(String[] args) {
-        UserDAO dao = new UserDAO();
-        UserRequest request = new UserRequest("email","nome","123456");
-        dao.save(request);
     }
 }
 
