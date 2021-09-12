@@ -5,12 +5,15 @@ import com.example.gerenciadorcontatos.model.dto.response.AddressResponse;
 import com.example.gerenciadorcontatos.model.entities.Address;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 
 @Mapper
-public abstract class AddressMapper {
+public interface AddressMapper {
 
-    public abstract Address toModel(AddressRequest request);
+    AddressMapper INSTANCE = Mappers.getMapper( AddressMapper.class );
+
+    Address toModel(AddressRequest request);
 
     @Mapping(source = "entity.contact.id", target = "id_contact")
-    public abstract AddressResponse toDTO(Address entity);
+    AddressResponse toDTO(Address entity);
 }

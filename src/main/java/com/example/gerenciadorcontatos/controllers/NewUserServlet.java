@@ -1,7 +1,7 @@
 package com.example.gerenciadorcontatos.controllers;
 
 import com.example.gerenciadorcontatos.model.dao.UserDAO;
-import com.example.gerenciadorcontatos.model.entities.User;
+import com.example.gerenciadorcontatos.model.dto.request.UserRequest;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -24,7 +24,7 @@ public class NewUserServlet extends HttpServlet {
         String username = request.getParameter("Username");
         String password = request.getParameter("Password");
         String email = request.getParameter("Email");
-        User obj = new User();
+        UserRequest obj = new UserRequest();
         obj.setEmail(email);
         obj.setUsername(username);
         obj.setUser_pass(password);

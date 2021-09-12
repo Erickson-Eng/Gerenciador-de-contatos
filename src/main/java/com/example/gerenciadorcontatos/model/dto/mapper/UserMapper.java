@@ -4,11 +4,15 @@ import com.example.gerenciadorcontatos.model.dto.request.UserRequest;
 import com.example.gerenciadorcontatos.model.dto.response.UserResponse;
 import com.example.gerenciadorcontatos.model.entities.User;
 import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
-@Mapper
-public abstract class UserMapper {
 
-    public abstract User toModel(UserRequest request);
+@Mapper()
+public interface UserMapper {
 
-    public abstract UserResponse toDTO(User entity);
+    UserMapper INSTANCE = Mappers.getMapper( UserMapper.class );
+
+    User toModel(UserRequest request);
+
+    UserResponse toDTO(User entity);
 }
