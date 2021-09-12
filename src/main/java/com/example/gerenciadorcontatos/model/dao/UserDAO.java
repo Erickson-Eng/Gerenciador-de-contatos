@@ -32,7 +32,7 @@ public class UserDAO {
                             .setParameter("user_pass", user_pass);
             return query.getSingleResult();
         } catch (NoResultException e){
-            throw new ObjectNotFound("Usuario não encontrado");
+            throw new ObjectNotFound("User does not exist or incorrect data");
         }
     }
 
@@ -44,10 +44,5 @@ public class UserDAO {
         return query.getResultList();
     }
 
-    public static void main(String[] args) {
-        UserDAO dao = new UserDAO();
-        User user = dao.authorizeAccess("asdasdasd@gmail.com","1234");
-        System.out.println(user);
-    }
 }
 

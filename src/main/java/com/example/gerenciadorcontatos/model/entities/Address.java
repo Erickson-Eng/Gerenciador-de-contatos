@@ -28,7 +28,7 @@ public class Address implements Serializable {
     private String cep;
     @Column(nullable = false)
     private String city;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 2)
     private String state;
 
     @ManyToOne

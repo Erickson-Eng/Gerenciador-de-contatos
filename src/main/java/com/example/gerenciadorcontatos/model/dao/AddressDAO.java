@@ -33,10 +33,4 @@ public class AddressDAO {
         List<Address> addressList = query.getResultList();
         return query.getResultList();
     }
-
-    public static void main(String[] args) {
-        AddressDAO dao = new AddressDAO();
-
-        System.out.println(dao.findById(1));
-    }
 }
