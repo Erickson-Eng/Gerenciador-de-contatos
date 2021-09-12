@@ -25,8 +25,8 @@ public class User implements Serializable {
     private String email;
     @Column(nullable = false)
     private String username;
-    @Column(name = "user_pass", nullable = false)
-    private String password;
+    @Column(nullable = false)
+    private String user_pass;
 
     @JsonIgnore
     @OneToMany(cascade = {CascadeType.ALL},mappedBy = "user")
@@ -44,5 +44,14 @@ public class User implements Serializable {
     @Override
     public int hashCode() {
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" +
+                "id = " + id + ", " +
+                "email = " + email + ", " +
+                "username = " + username + ", " +
+                "user_pass = " + user_pass + ")";
     }
 }

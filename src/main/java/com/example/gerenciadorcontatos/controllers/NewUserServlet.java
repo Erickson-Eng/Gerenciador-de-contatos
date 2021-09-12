@@ -2,9 +2,7 @@ package com.example.gerenciadorcontatos.controllers;
 
 import com.example.gerenciadorcontatos.model.dao.UserDAO;
 import com.example.gerenciadorcontatos.model.entities.User;
-import com.example.gerenciadorcontatos.resources.JPAUtil;
 
-import javax.persistence.EntityManager;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -15,7 +13,8 @@ public class NewUserServlet extends HttpServlet {
 
     private final UserDAO userDAO = new UserDAO();
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
     }
 
@@ -28,8 +27,8 @@ public class NewUserServlet extends HttpServlet {
         User obj = new User();
         obj.setEmail(email);
         obj.setUsername(username);
-        obj.setPassword(password);
+        obj.setUser_pass(password);
         userDAO.save(obj);
-        System.out.printf("Username : %s%nPassword: %s%nEmail: %s%n ",obj.getUsername(),obj.getPassword(),obj.getEmail());
+        System.out.printf("Username : %s%nPassword: %s%nEmail: %s%n ",obj.getUsername(),obj.getUser_pass(),obj.getEmail());
     }
 }

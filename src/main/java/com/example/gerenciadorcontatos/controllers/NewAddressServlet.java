@@ -30,7 +30,6 @@ public class NewAddressServlet extends HttpServlet {
         obj.setCity(request.getParameter("city"));
         obj.setState(request.getParameter("state"));
         addressDAO.save(obj);
-        System.out.println(obj);
 
     }
 }

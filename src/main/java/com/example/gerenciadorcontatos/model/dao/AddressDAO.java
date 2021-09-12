@@ -19,15 +19,24 @@ public class AddressDAO {
     }
 
     public Address findById(Integer id){
-        return this.entityManager.find(Address.class,id);
+        String consult = "select a from Address a where a.id = :id";
+        TypedQuery<Address> query = entityManager.createQuery(consult, Address.class)
+                .setParameter("id", id);
+        return query.getSingleResult();
     }
 
     public List<Address> findAll(){
         String consult = "from Address";
         TypedQuery<Address> query = entityManager.createQuery(consult, Address.class);
         query.setMaxResults(10);
+        query.setFirstResult(0);
         List<Address> addressList = query.getResultList();
         return query.getResultList();
     }
 
+    public static void main(String[] args) {
+        AddressDAO dao = new AddressDAO();
+
+        System.out.println(dao.findById(1));
+    }
 }

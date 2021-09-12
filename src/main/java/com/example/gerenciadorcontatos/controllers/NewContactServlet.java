@@ -2,9 +2,7 @@ package com.example.gerenciadorcontatos.controllers;
 
 import com.example.gerenciadorcontatos.model.dao.ContactDAO;
 import com.example.gerenciadorcontatos.model.entities.Contact;
-import com.example.gerenciadorcontatos.resources.JPAUtil;
 
-import javax.persistence.EntityManager;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;

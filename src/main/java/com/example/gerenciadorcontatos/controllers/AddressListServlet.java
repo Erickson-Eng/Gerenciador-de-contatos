@@ -3,7 +3,6 @@ package com.example.gerenciadorcontatos.controllers;
 import com.example.gerenciadorcontatos.model.dao.AddressDAO;
 import com.example.gerenciadorcontatos.model.entities.Address;
 
-import javax.inject.Inject;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;

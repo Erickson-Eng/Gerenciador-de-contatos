@@ -1,8 +1,8 @@
 package com.example.gerenciadorcontatos.model.dao.exceptions;
 
-public class NoResultException extends RuntimeException{
+public class ObjectNotFound extends RuntimeException{
 
-    public NoResultException(String message) {
+    public ObjectNotFound(String message) {
         super(message);
     }
 }
