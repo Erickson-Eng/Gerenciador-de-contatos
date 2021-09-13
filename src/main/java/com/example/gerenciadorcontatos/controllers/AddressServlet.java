@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "ListaEnderecoServlet", value = "/address")
-public class AddressListServlet extends HttpServlet {
+public class AddressServlet extends HttpServlet {
 
     private AddressDAO dao = new AddressDAO();
     @Override

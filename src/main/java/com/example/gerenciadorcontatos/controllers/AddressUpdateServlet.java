@@ -1,6 +1,7 @@
 package com.example.gerenciadorcontatos.controllers;
 
 import com.example.gerenciadorcontatos.model.dao.AddressDAO;
+import com.example.gerenciadorcontatos.model.dto.request.AddressRequest;
 import com.example.gerenciadorcontatos.model.entities.Address;
 
 import javax.inject.Inject;
@@ -10,7 +11,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @WebServlet(name = "NewAddressServlet", value = "/newAddress")
-public class NewAddressServlet extends HttpServlet {
+public class AddressUpdateServlet extends HttpServlet {
     @Inject
     private AddressDAO addressDAO;
     @Override

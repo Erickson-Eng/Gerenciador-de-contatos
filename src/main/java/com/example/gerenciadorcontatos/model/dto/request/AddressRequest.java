@@ -31,5 +31,5 @@ public class AddressRequest {
             message = "enter only the federative unit with two letters, example 'PB' for Paraíba")
     private String state;
     @NotNull @NotEmpty @NotBlank
-    private Integer id_contact;
+    private ContactRequest contactRequest;
 }

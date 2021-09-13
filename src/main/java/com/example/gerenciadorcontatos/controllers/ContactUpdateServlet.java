@@ -8,8 +8,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "NewContactServlet", value = "/newContact")
-public class NewContactServlet extends HttpServlet {
+@WebServlet(name = "NewContactServlet", value = "/updateContact")
+public class ContactUpdateServlet extends HttpServlet {
 
     private final ContactDAO contactDAO = new ContactDAO();
     @Override

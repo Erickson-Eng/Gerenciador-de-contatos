@@ -19,6 +19,6 @@ public class AddressResponse {
     private String cep;
     private String city;
     private String state;
-    private Integer id_contact;
+    private ContactResponse contactResponse;
 
 }

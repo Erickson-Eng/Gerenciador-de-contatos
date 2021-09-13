@@ -1,8 +1,11 @@
 package com.example.gerenciadorcontatos.model.dto.mapper;
 
 import com.example.gerenciadorcontatos.model.dto.request.ContactRequest;
+import com.example.gerenciadorcontatos.model.dto.request.UserRequest;
 import com.example.gerenciadorcontatos.model.dto.response.ContactResponse;
 import com.example.gerenciadorcontatos.model.dto.response.ContactResponse.ContactResponseBuilder;
+import com.example.gerenciadorcontatos.model.dto.response.UserResponse;
+import com.example.gerenciadorcontatos.model.dto.response.UserResponse.UserResponseBuilder;
 import com.example.gerenciadorcontatos.model.entities.Contact;
 import com.example.gerenciadorcontatos.model.entities.User;
 import javax.annotation.processing.Generated;
@@ -20,6 +23,7 @@ public class ContactMapperImpl implements ContactMapper {
 
         Contact contact = new Contact();
 
+        contact.setUser( userRequestToUser( request.getUserRequest() ) );
         contact.setNome( request.getNome() );
         contact.setRg( request.getRg() );
         contact.setCpf( request.getCpf() );
@@ -35,7 +39,7 @@ public class ContactMapperImpl implements ContactMapper {
 
         ContactResponseBuilder contactResponse = ContactResponse.builder();
 
-        contactResponse.id_user( entityUserId( entity ) );
+        contactResponse.userResponse( userToUserResponse( entity.getUser() ) );
         contactResponse.id( entity.getId() );
         contactResponse.nome( entity.getNome() );
         contactResponse.rg( entity.getRg() );
@@ -44,18 +48,31 @@ public class ContactMapperImpl implements ContactMapper {
         return contactResponse.build();
     }
 
-    private Integer entityUserId(Contact contact) {
-        if ( contact == null ) {
+    protected User userRequestToUser(UserRequest userRequest) {
+        if ( userRequest == null ) {
             return null;
         }
-        User user = contact.getUser();
+
+        User user = new User();
+
+        user.setEmail( userRequest.getEmail() );
+        user.setUsername( userRequest.getUsername() );
+        user.setUser_pass( userRequest.getUser_pass() );
+
+        return user;
+    }
+
+    protected UserResponse userToUserResponse(User user) {
         if ( user == null ) {
             return null;
         }
-        Integer id = user.getId();
-        if ( id == null ) {
-            return null;
-        }
-        return id;
+
+        UserResponseBuilder userResponse = UserResponse.builder();
+
+        userResponse.id( user.getId() );
+        userResponse.email( user.getEmail() );
+        userResponse.username( user.getUsername() );
+
+        return userResponse.build();
     }
 }

@@ -1,5 +1,7 @@
 package com.example.gerenciadorcontatos.model.dao;
 
+import com.example.gerenciadorcontatos.model.dto.mapper.AddressMapper;
+import com.example.gerenciadorcontatos.model.dto.request.AddressRequest;
 import com.example.gerenciadorcontatos.model.entities.Address;
 import com.example.gerenciadorcontatos.resources.JPAUtil;
 
@@ -10,6 +12,7 @@ import java.util.List;
 public class AddressDAO {
 
     private final EntityManager entityManager = JPAUtil.getEntityManager();
+    private AddressMapper mapper;
 
     public void save(Address obj){
         this.entityManager.getTransaction().begin();

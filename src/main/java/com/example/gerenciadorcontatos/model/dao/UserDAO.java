@@ -4,6 +4,7 @@ import com.example.gerenciadorcontatos.model.dao.exceptions.DataIntegrityViolati
 import com.example.gerenciadorcontatos.model.dao.exceptions.ObjectNotFound;
 import com.example.gerenciadorcontatos.model.dto.mapper.UserMapper;
 import com.example.gerenciadorcontatos.model.dto.request.UserRequest;
+import com.example.gerenciadorcontatos.model.dto.response.UserResponse;
 import com.example.gerenciadorcontatos.model.entities.User;
 import com.example.gerenciadorcontatos.resources.JPAUtil;
 
@@ -36,25 +37,23 @@ public class UserDAO {
     }
 
 
-    public User authorizeAccess(String email, String user_pass){
+    public UserResponse authorizeAccess(String email, String user_pass){
         String consult = "select u from User u where u.email= :email and u.user_pass= :user_pass";
         try {
             TypedQuery<User> query =
                     entityManager.createQuery(consult,User.class)
                             .setParameter("email",email)
                             .setParameter("user_pass", user_pass);
-            return query.getSingleResult();
+            return UserMapper.INSTANCE.toDTO(query.getSingleResult());
         } catch (NoResultException e){
             throw new ObjectNotFound("User does not exist or incorrect data");
         }
     }
 
-    public List<User> findAll(){
-        String consult = "from User";
-        TypedQuery<User> query = entityManager.createQuery(consult, User.class);
-        query.setMaxResults(10);
-        List<User> users = query.getResultList();
-        return query.getResultList();
+    public User findbyId(Integer id){
+        String consult = "select u from User u where u.id = :id";
+        TypedQuery<User> query = entityManager.createQuery(consult, User.class).setParameter("id",id);
+        return query.getSingleResult();
     }
 }
 

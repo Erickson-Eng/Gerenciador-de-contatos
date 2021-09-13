@@ -32,6 +32,10 @@ public class Contact implements Serializable {
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "contact")
     private List<Address> address = new ArrayList<>();
 
+    public void add( Address address){
+        this.address.add(address);
+    }
+
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
 

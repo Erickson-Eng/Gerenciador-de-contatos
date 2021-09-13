@@ -15,5 +15,5 @@ public class ContactResponse {
     private String nome;
     private Integer rg;
     private String cpf;
-    private Integer id_user;
+    private UserResponse userResponse;
 }

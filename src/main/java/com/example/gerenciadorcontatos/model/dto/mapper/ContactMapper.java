@@ -12,8 +12,9 @@ public interface ContactMapper {
 
     ContactMapper INSTANCE = Mappers.getMapper( ContactMapper.class );
 
+    @Mapping(source = "request.userRequest", target = "user")
     Contact toModel(ContactRequest request);
 
-    @Mapping(source = "entity.user.id", target = "id_user")
+    @Mapping(source = "entity.user", target = "userResponse")
     ContactResponse toDTO(Contact entity);
 }

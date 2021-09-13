@@ -1,5 +1,6 @@
 com\example\gerenciadorcontatos\resources\JPAUtil.class
-com\example\gerenciadorcontatos\controllers\NewAddressServlet.class
+com\example\gerenciadorcontatos\controllers\ContactUpdateServlet.class
+com\example\gerenciadorcontatos\controllers\ContactServlet.class
 com\example\gerenciadorcontatos\model\dto\response\ContactResponse$ContactResponseBuilder.class
 com\example\gerenciadorcontatos\model\dao\exceptions\ObjectNotFound.class
 com\example\gerenciadorcontatos\model\dto\response\UserResponse.class
@@ -17,15 +18,16 @@ com\example\gerenciadorcontatos\model\dto\request\UserRequest.class
 com\example\gerenciadorcontatos\model\dto\mapper\AddressMapper.class
 com\example\gerenciadorcontatos\model\dao\exceptions\DataIntegrityViolationException.class
 com\example\gerenciadorcontatos\model\dto\response\ContactResponse.class
-com\example\gerenciadorcontatos\HelloServlet.class
-com\example\gerenciadorcontatos\controllers\AddressListServlet.class
-com\example\gerenciadorcontatos\controllers\NewContactServlet.class
+com\example\gerenciadorcontatos\controllers\AddressUpdateServlet.class
+com\example\gerenciadorcontatos\controllers\LoginServlet.class
 com\example\gerenciadorcontatos\model\dto\request\ContactRequest.class
 com\example\gerenciadorcontatos\model\dto\response\AddressResponse.class
 com\example\gerenciadorcontatos\model\dto\mapper\UserMapper.class
 com\example\gerenciadorcontatos\model\dao\AddressDAO.class
+com\example\gerenciadorcontatos\controllers\AddressServlet.class
 com\example\gerenciadorcontatos\model\dto\mapper\ContactMapperImpl.class
 com\example\gerenciadorcontatos\model\dto\mapper\UserMapperImpl.class
+com\example\gerenciadorcontatos\controllers\ContactCreatedServlet.class
 com\example\gerenciadorcontatos\model\dto\response\AddressResponse$AddressResponseBuilder.class
 com\example\gerenciadorcontatos\model\dto\request\UserRequest$UserRequestBuilder.class
 com\example\gerenciadorcontatos\model\entities\User.class

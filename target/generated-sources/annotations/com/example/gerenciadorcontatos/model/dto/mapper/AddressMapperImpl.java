@@ -1,8 +1,11 @@
 package com.example.gerenciadorcontatos.model.dto.mapper;
 
 import com.example.gerenciadorcontatos.model.dto.request.AddressRequest;
+import com.example.gerenciadorcontatos.model.dto.request.ContactRequest;
 import com.example.gerenciadorcontatos.model.dto.response.AddressResponse;
 import com.example.gerenciadorcontatos.model.dto.response.AddressResponse.AddressResponseBuilder;
+import com.example.gerenciadorcontatos.model.dto.response.ContactResponse;
+import com.example.gerenciadorcontatos.model.dto.response.ContactResponse.ContactResponseBuilder;
 import com.example.gerenciadorcontatos.model.entities.Address;
 import com.example.gerenciadorcontatos.model.entities.Contact;
 import javax.annotation.processing.Generated;
@@ -20,6 +23,7 @@ public class AddressMapperImpl implements AddressMapper {
 
         Address address = new Address();
 
+        address.setContact( contactRequestToContact( request.getContactRequest() ) );
         address.setStreet( request.getStreet() );
         address.setNumber( request.getNumber() );
         address.setComplement( request.getComplement() );
@@ -39,7 +43,7 @@ public class AddressMapperImpl implements AddressMapper {
 
         AddressResponseBuilder addressResponse = AddressResponse.builder();
 
-        addressResponse.id_contact( entityContactId( entity ) );
+        addressResponse.contactResponse( contactToContactResponse( entity.getContact() ) );
         addressResponse.id( entity.getId() );
         addressResponse.street( entity.getStreet() );
         addressResponse.number( entity.getNumber() );
@@ -52,18 +56,32 @@ public class AddressMapperImpl implements AddressMapper {
         return addressResponse.build();
     }
 
-    private Integer entityContactId(Address address) {
-        if ( address == null ) {
+    protected Contact contactRequestToContact(ContactRequest contactRequest) {
+        if ( contactRequest == null ) {
             return null;
         }
-        Contact contact = address.getContact();
+
+        Contact contact = new Contact();
+
+        contact.setNome( contactRequest.getNome() );
+        contact.setRg( contactRequest.getRg() );
+        contact.setCpf( contactRequest.getCpf() );
+
+        return contact;
+    }
+
+    protected ContactResponse contactToContactResponse(Contact contact) {
         if ( contact == null ) {
             return null;
         }
-        Integer id = contact.getId();
-        if ( id == null ) {
-            return null;
-        }
-        return id;
+
+        ContactResponseBuilder contactResponse = ContactResponse.builder();
+
+        contactResponse.id( contact.getId() );
+        contactResponse.nome( contact.getNome() );
+        contactResponse.rg( contact.getRg() );
+        contactResponse.cpf( contact.getCpf() );
+
+        return contactResponse.build();
     }
 }

@@ -27,5 +27,5 @@ public class ContactRequest {
     @NotNull
     @NotEmpty
     @NotBlank
-    private Integer id_user;
+    private UserRequest userRequest;
 }

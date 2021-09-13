@@ -12,8 +12,9 @@ public interface AddressMapper {
 
     AddressMapper INSTANCE = Mappers.getMapper( AddressMapper.class );
 
+    @Mapping(source = "request.contactRequest", target = "contact")
     Address toModel(AddressRequest request);
 
-    @Mapping(source = "entity.contact.id", target = "id_contact")
+    @Mapping(source = "entity.contact", target = "contactResponse")
     AddressResponse toDTO(Address entity);
 }
