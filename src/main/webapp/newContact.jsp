@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:url value="/newContact" var="linkToNewContact" />
+<c:url value="/FormContatoServlet" var="linkToNewContact" />
 <html lang="en">
 
 <head>
@@ -16,7 +16,7 @@
 <body>
     <div class="container">
 
-        <a href="/gerenciador/contact?userId=${user}">Adicionar</a>
+        <a href="/gerenciador/contact?userId=${user.id}">Adicionar</a>
 
         <form action="${linkToNewContact}" method="post">
             <div>
@@ -65,7 +65,7 @@
                     <input type="text" class="form-control" id="estado" name="state">
                 </div>
                 <div>
-                    <input type="hidden" name="user" value="${user.id}">
+                    <input type="hidden" name="userId" value="${user.id}">
                     <button type="submit">Registrar</button>
                 </div>
             </div>

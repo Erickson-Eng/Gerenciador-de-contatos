@@ -5,6 +5,8 @@ import com.example.gerenciadorcontatos.model.dto.mapper.ContactMapper;
 import com.example.gerenciadorcontatos.model.dto.response.ContactResponse;
 import com.example.gerenciadorcontatos.model.entities.Contact;
 import com.example.gerenciadorcontatos.resources.JPAUtil;
+import org.hibernate.PersistentObjectException;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.ArrayList;
@@ -18,10 +20,15 @@ public class ContactDAO {
     private final EntityManager entityManager = JPAUtil.getEntityManager();
 
     public void save(Contact obj){
-        this.entityManager.getTransaction().begin();
-        this.entityManager.persist(obj);
-        this.entityManager.getTransaction().commit();
-        this.entityManager.close();
+        try{
+            this.entityManager.getTransaction().begin();
+            this.entityManager.persist(obj);
+            this.entityManager.getTransaction().commit();
+            this.entityManager.close();
+        }catch (PersistentObjectException e){
+            e.printStackTrace();
+        }
+
     }
     public List<ContactResponse> listAll(Integer id){
         String consult = "select c from Contact c where c.user.id = :id";

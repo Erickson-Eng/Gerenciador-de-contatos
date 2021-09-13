@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <h2>Lista de endereços cadastrados</h2>
-        <a href="/gerenciador/newContact.jsp?userId=${user.id}">Adicionar</a>
+        <a href="/gerenciador/newContact?userId=${user.id}">Adicionar</a>
         <c:forEach items="${responses}" var="response">
             <li>
                     ${response.nome} - ${response.rg} - ${response.cpf}

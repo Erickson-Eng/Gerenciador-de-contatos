@@ -24,28 +24,11 @@ public class ContactCreatedServlet extends HttpServlet {
 
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Address obj = new Address();
-        Contact contactRequest = new Contact();
-
-        //contato
-        contactRequest.setNome(request.getParameter("name"));
-        contactRequest.setCpf(request.getParameter("cpf"));
-        contactRequest.setRg(Integer.parseInt(request.getParameter("rg")));
-
-        //endereco
-        obj.setStreet(request.getParameter("street"));
-        obj.setNumber(Integer.parseInt(request.getParameter("number")));
-        obj.setComplement(request.getParameter("complement"));
-        obj.setDistrict(request.getParameter("district"));
-        obj.setCep(request.getParameter("cep"));
-        obj.setCity(request.getParameter("city"));
-        obj.setState(request.getParameter("state"));
-        obj.setContact(contactRequest);
-        contactDAO.save(contactRequest);
-        addressDAO.save(obj);
-
-
-//        response.sendRedirect("/gerenciador/newContact.jsp?userId="+user.getId());
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("userId");
+        User user = userDAO.findbyId(Integer.parseInt(id));
+        request.setAttribute("user",user);
+        RequestDispatcher rd = request.getRequestDispatcher("/newContact.jsp");
+        rd.forward(request,response);
     }
 }
